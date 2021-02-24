@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 
+
 class SelfAttention(nn.Module):
     def __init__(self, embed_size, heads):
         # inherit parent class nn.Module
@@ -8,7 +9,7 @@ class SelfAttention(nn.Module):
         self.embed_size = embed_size
         self.heads = heads
         self.head_dim = embed_size // heads
-        assert (heads * self.head_dim == embed_size), "embed_size must be dividible by heads"
+        assert (heads * self.head_dim == embed_size), "embed_size must be divisible by heads"
 
         self.values = nn.Linear(self.head_dim, self.head_dim, bias=False)
         self.keys = nn.Linear(self.head_dim, self.head_dim, bias=False)
